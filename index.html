@@ -246,42 +246,12 @@
                 <h2>Your 2050 <span class="gradient-text">Health Outlook</span></h2>
             </div>
 
-            <!-- Avatar Section -->
-            <div class="avatar-section">
-                <div class="avatar-wrapper" id="avatarWrapper">
-                    <div class="avatar-silhouette" id="avatarSilhouette">
-                        <svg viewBox="0 0 200 320" class="avatar-svg">
-                            <!-- Head -->
-                            <circle cx="100" cy="60" r="35" class="avatar-part" />
-                            <!-- Neck -->
-                            <rect x="90" y="95" width="20" height="15" rx="5" class="avatar-part" />
-                            <!-- Body -->
-                            <path
-                                d="M60 110 Q60 105 70 105 L130 105 Q140 105 140 110 L145 200 Q145 210 135 210 L65 210 Q55 210 55 200 Z"
-                                class="avatar-part" />
-                            <!-- Left Arm -->
-                            <path d="M60 115 Q40 115 35 140 L30 180 Q28 190 35 190 L45 190 Q50 190 50 185 L55 145"
-                                class="avatar-part" />
-                            <!-- Right Arm -->
-                            <path
-                                d="M140 115 Q160 115 165 140 L170 180 Q172 190 165 190 L155 190 Q150 190 150 185 L145 145"
-                                class="avatar-part" />
-                            <!-- Left Leg -->
-                            <path d="M70 210 L65 280 Q63 295 70 295 L85 295 Q90 295 90 290 L90 215"
-                                class="avatar-part" />
-                            <!-- Right Leg -->
-                            <path d="M130 210 L135 280 Q137 295 130 295 L115 295 Q110 295 110 290 L110 215"
-                                class="avatar-part" />
-                        </svg>
-                        <div class="avatar-aura" id="avatarAura"></div>
-                        <div class="avatar-particles" id="avatarParticles"></div>
-                    </div>
-                    <div class="avatar-label" id="avatarLabel">My Future Self</div>
-                    <div class="health-score-display">
-                        <span class="score-label">HEALTH SCORE</span>
-                        <span class="score-value" id="scoreValue">0</span>
-                        <span class="score-max">/ 100</span>
-                    </div>
+            <!-- Health Score Display -->
+            <div class="health-score-section">
+                <div class="health-score-display">
+                    <span class="score-label">HEALTH SCORE</span>
+                    <span class="score-value" id="scoreValue">0</span>
+                    <span class="score-max">/ 100</span>
                 </div>
             </div>
 
@@ -475,6 +445,5 @@
 
     <script src="app.js"></script>
 </body>
-
 
 </html>
