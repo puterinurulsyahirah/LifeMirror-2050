@@ -322,17 +322,6 @@ function renderResults(score) {
         tier.level === 'healthy' ? '✨ THRIVING FUTURE' :
             tier.level === 'moderate' ? '⚡ MODERATE RISK DETECTED' : '⚠️ HIGH RISK ALERT';
 
-    // Avatar
-    const avatarSvg = document.querySelector('.avatar-svg');
-    avatarSvg.className = 'avatar-svg ' + tier.level;
-
-    const aura = document.getElementById('avatarAura');
-    aura.className = 'avatar-aura ' + tier.level;
-
-    const label = document.getElementById('avatarLabel');
-    label.textContent = tier.label + ' Self';
-    label.className = 'avatar-label ' + tier.level;
-
     // Score counter
     const scoreEl = document.getElementById('scoreValue');
     scoreEl.className = 'score-value ' + tier.level;
@@ -360,9 +349,6 @@ function renderResults(score) {
 
     // Projection chart
     setTimeout(() => drawProjectionChart(score), 500);
-
-    // Avatar particles
-    spawnAvatarParticles(tier.level);
 }
 
 function animateNumber(el, from, to, duration) {
@@ -547,53 +533,6 @@ function drawProjectionChart(score) {
     drawLine(costData, '#ffd166', '#ffd166');
 }
 
-// ==========================================
-// AVATAR PARTICLES
-// ==========================================
-function spawnAvatarParticles(level) {
-    const container = document.getElementById('avatarParticles');
-    container.innerHTML = '';
-
-    if (level === 'risky') return; // No particles for risky
-
-    const count = level === 'healthy' ? 20 : 10;
-    const color = level === 'healthy' ? '170, 90%, 70%' : '45, 90%, 70%';
-
-    for (let i = 0; i < count; i++) {
-        const particle = document.createElement('div');
-        const size = Math.random() * 4 + 2;
-        const x = Math.random() * 200;
-        const y = Math.random() * 320;
-        const dur = Math.random() * 3 + 2;
-        const delay = Math.random() * 2;
-
-        particle.style.cssText = `
-            position: absolute;
-            width: ${size}px;
-            height: ${size}px;
-            background: hsla(${color}, ${level === 'healthy' ? 0.7 : 0.4});
-            border-radius: 50%;
-            left: ${x}px;
-            top: ${y}px;
-            animation: particleFloat ${dur}s ease-in-out ${delay}s infinite;
-            pointer-events: none;
-        `;
-        container.appendChild(particle);
-    }
-
-    // Add particle float keyframes if not already injected
-    if (!document.getElementById('particleFloatStyle')) {
-        const style = document.createElement('style');
-        style.id = 'particleFloatStyle';
-        style.textContent = `
-            @keyframes particleFloat {
-                0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
-                50% { transform: translateY(-20px) scale(1.3); opacity: 0.3; }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-}
 
 // ==========================================
 // WHAT IF MODE
