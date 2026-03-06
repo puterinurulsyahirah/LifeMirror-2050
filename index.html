@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LifeMirror 2050: Mirror Your Life, Predict Your Health">
+    <title>LifeMirror 2050</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background: Particle -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Main Page -->
+    <section id="landing" class="page active">
+        <div class="landing-content">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                LifeMirror 2050 · Your Digital Health Twin
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">Mirror Your Life,</span>
+                <span class="title-line gradient-text">Predict Your Health</span>
+            </h1>
+            <p class="hero-subtitle">
+                Experience Malaysia's future of preventive healthcare with us!
+                <br>Build your digital twin and see your 2050 health outlook.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="35">0</span><span class="stat-suffix">M+</span>
+                    <span class="stat-label">Malaysians Protected</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="94">0</span><span class="stat-suffix">%</span>
+                    <span class="stat-label">Disease Prevention Rate</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="2050">0</span>
+                    <span class="stat-label">Target Year</span>
+                </div>
+            </div>
+            <button id="startBtn" class="cta-button">
+                <span class="btn-text">Start Simulation</span>
+                <span class="btn-icon">→</span>
+                <span class="btn-glow"></span>
+            </button>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="dna-helix" id="dnaHelix"></div>
+        </div>
+    </section>
+
+    <!-- User Lifestyle Input Page -->
+    <section id="lifestyle" class="page">
+        <div class="page-container">
+            <div class="section-header">
+                <span class="section-badge">Share Your Lifestyle!</span>
+                <h2>Let's <span class="gradient-text">Mirror</span> Yourself</h2>
+                <p>Answer these questions to simulate your health in 2050.</p>
+            </div>
+
+            <div class="input-grid">
+                <!-- 1. Diet -->
+                <div class="input-card" data-category="diet">
+                    <div class="card-icon">🍔</div>
+                    <h3>Diet</h3>
+                    <p>What best describes your eating habits?</p>
+                    <div class="option-group" data-name="diet">
+                        <button class="option-btn" data-value="3">
+                            <span class="opt-icon">🥗</span>
+                            <span class="opt-label">Healthy Balanced</span>
+                        </button>
+                        <button class="option-btn" data-value="2">
+                            <span class="opt-icon">🍱</span>
+                            <span class="opt-label">Mixed</span>
+                        </button>
+                        <button class="option-btn" data-value="1">
+                            <span class="opt-icon">🍟</span>
+                            <span class="opt-label">Frequent Fast Food</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 2. Exercise -->
+                <div class="input-card" data-category="exercise">
+                    <div class="card-icon">🏃</div>
+                    <h3>Exercise</h3>
+                    <p>How often do you exercise per week?</p>
+                    <div class="option-group" data-name="exercise">
+                        <button class="option-btn" data-value="1">
+                            <span class="opt-icon">🛋️</span>
+                            <span class="opt-label">0–1 times/week</span>
+                        </button>
+                        <button class="option-btn" data-value="2">
+                            <span class="opt-icon">🚶</span>
+                            <span class="opt-label">2–3 times/week</span>
+                        </button>
+                        <button class="option-btn" data-value="3">
+                            <span class="opt-icon">💪</span>
+                            <span class="opt-label">4+ times/week</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 3. Sleep -->
+                <div class="input-card" data-category="sleep">
+                    <div class="card-icon">😴</div>
+                    <h3>Sleep</h3>
+                    <p>How many hours do you sleep per night?</p>
+                    <div class="option-group" data-name="sleep">
+                        <button class="option-btn" data-value="1">
+                            <span class="opt-icon">😫</span>
+                            <span class="opt-label">&lt;5 hours</span>
+                        </button>
+                        <button class="option-btn" data-value="2">
+                            <span class="opt-icon">😌</span>
+                            <span class="opt-label">6–7 hours</span>
+                        </button>
+                        <button class="option-btn" data-value="3">
+                            <span class="opt-icon">😊</span>
+                            <span class="opt-label">8+ hours</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 4. Screen Time -->
+                <div class="input-card" data-category="screen">
+                    <div class="card-icon">📱</div>
+                    <h3>Screen Time</h3>
+                    <p>Daily non-work screen time?</p>
+                    <div class="option-group" data-name="screen">
+                        <button class="option-btn" data-value="3">
+                            <span class="opt-icon">📖</span>
+                            <span class="opt-label">&lt;3 hours</span>
+                        </button>
+                        <button class="option-btn" data-value="2">
+                            <span class="opt-icon">📺</span>
+                            <span class="opt-label">3–6 hours</span>
+                        </button>
+                        <button class="option-btn" data-value="1">
+                            <span class="opt-icon">🎮</span>
+                            <span class="opt-label">6+ hours</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 5. Stress -->
+                <div class="input-card" data-category="stress">
+                    <div class="card-icon">😰</div>
+                    <h3>Stress Level</h3>
+                    <p>How would you rate your stress?</p>
+                    <div class="option-group" data-name="stress">
+                        <button class="option-btn" data-value="3">
+                            <span class="opt-icon">🧘</span>
+                            <span class="opt-label">Low</span>
+                        </button>
+                        <button class="option-btn" data-value="2">
+                            <span class="opt-icon">😐</span>
+                            <span class="opt-label">Moderate</span>
+                        </button>
+                        <button class="option-btn" data-value="1">
+                            <span class="opt-icon">🤯</span>
+                            <span class="opt-label">High</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 6. Environment -->
+                <div class="input-card" data-category="environment">
+                    <div class="card-icon">🌏</div>
+                    <h3>Environment</h3>
+                    <p>Where do you primarily live?</p>
+                    <div class="option-group" data-name="environment">
+                        <button class="option-btn" data-value="2">
+                            <span class="opt-icon">🏙️</span>
+                            <span class="opt-label">Urban</span>
+                        </button>
+                        <button class="option-btn" data-value="3">
+                            <span class="opt-icon">🌾</span>
+                            <span class="opt-label">Rural</span>
+                        </button>
+                        <button class="option-btn" data-value="1">
+                            <span class="opt-icon">🏭</span>
+                            <span class="opt-label">Industrial Area</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-actions">
+                <button id="backToLanding" class="secondary-button">← Back</button>
+                <button id="simulateBtn" class="cta-button" disabled>
+                    <span class="btn-text">Predict My Health</span>
+                    <span class="btn-icon">⚡</span>
+                    <span class="btn-glow"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prediction Animation Page -->
+    <section id="processing" class="page">
+        <div class="processing-content">
+            <div class="sim-ring">
+                <svg viewBox="0 0 200 200" class="ring-svg">
+                    <circle cx="100" cy="100" r="90" class="ring-bg" />
+                    <circle cx="100" cy="100" r="90" class="ring-progress" id="ringProgress" />
+                </svg>
+                <div class="sim-percent" id="simPercent">0%</div>
+            </div>
+            <h2 class="processing-title">Mirroring Your Life in 2050</h2>
+            <div class="processing-steps">
+                <div class="proc-step" id="proc1">
+                    <span class="proc-icon">🧬</span> Analyzing lifestyle patterns...
+                </div>
+                <div class="proc-step" id="proc2">
+                    <span class="proc-icon">🔬</span> Running health simulations...
+                </div>
+                <div class="proc-step" id="proc3">
+                    <span class="proc-icon">📊</span> Predicting health in 2050...
+                </div>
+                <div class="proc-step" id="proc4">
+                    <span class="proc-icon">🤖</span> AI preventive strategies ready...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Result Page -->
+    <section id="results" class="page">
+        <div class="results-bg" id="resultsBg"></div>
+        <div class="page-container results-container">
+            <div class="section-header">
+                <span class="section-badge" id="resultBadge">Simulation Complete</span>
+                <h2>Your 2050 <span class="gradient-text">Health Outlook</span></h2>
+            </div>
+
+            <!-- Avatar Section -->
+            <div class="avatar-section">
+                <div class="avatar-wrapper" id="avatarWrapper">
+                    <div class="avatar-silhouette" id="avatarSilhouette">
+                        <svg viewBox="0 0 200 320" class="avatar-svg">
+                            <!-- Head -->
+                            <circle cx="100" cy="60" r="35" class="avatar-part" />
+                            <!-- Neck -->
+                            <rect x="90" y="95" width="20" height="15" rx="5" class="avatar-part" />
+                            <!-- Body -->
+                            <path
+                                d="M60 110 Q60 105 70 105 L130 105 Q140 105 140 110 L145 200 Q145 210 135 210 L65 210 Q55 210 55 200 Z"
+                                class="avatar-part" />
+                            <!-- Left Arm -->
+                            <path d="M60 115 Q40 115 35 140 L30 180 Q28 190 35 190 L45 190 Q50 190 50 185 L55 145"
+                                class="avatar-part" />
+                            <!-- Right Arm -->
+                            <path
+                                d="M140 115 Q160 115 165 140 L170 180 Q172 190 165 190 L155 190 Q150 190 150 185 L145 145"
+                                class="avatar-part" />
+                            <!-- Left Leg -->
+                            <path d="M70 210 L65 280 Q63 295 70 295 L85 295 Q90 295 90 290 L90 215"
+                                class="avatar-part" />
+                            <!-- Right Leg -->
+                            <path d="M130 210 L135 280 Q137 295 130 295 L115 295 Q110 295 110 290 L110 215"
+                                class="avatar-part" />
+                        </svg>
+                        <div class="avatar-aura" id="avatarAura"></div>
+                        <div class="avatar-particles" id="avatarParticles"></div>
+                    </div>
+                    <div class="avatar-label" id="avatarLabel">My Future Self</div>
+                    <div class="health-score-display">
+                        <span class="score-label">HEALTH SCORE</span>
+                        <span class="score-value" id="scoreValue">0</span>
+                        <span class="score-max">/ 100</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metrics Grid -->
+            <div class="metrics-grid">
+                <!-- 1. Energy Index -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-icon">🔋</span>
+                        <h4>2050 Energy Index</h4>
+                    </div>
+                    <div class="metric-bar-wrapper">
+                        <div class="metric-bar" id="energyBar">
+                            <div class="metric-fill" data-target="0"></div>
+                        </div>
+                        <span class="metric-value" id="energyValue">0%</span>
+                    </div>
+                </div>
+
+                <!-- 2. Cardiovascular Risk -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-icon">❤️</span>
+                        <h4>Cardiovascular Risk</h4>
+                    </div>
+                    <div class="risk-indicator" id="cardioRisk">
+                        <span class="risk-dot"></span>
+                        <span class="risk-label">Analyzing...</span>
+                    </div>
+                </div>
+
+                <!-- 3. Mental Wellbeing -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-icon">🧠</span>
+                        <h4>Mental Wellbeing</h4>
+                    </div>
+                    <div class="metric-bar-wrapper">
+                        <div class="metric-bar" id="mentalBar">
+                            <div class="metric-fill" data-target="0"></div>
+                        </div>
+                        <span class="metric-value" id="mentalValue">0%</span>
+                    </div>
+                </div>
+
+                <!-- Healthcare Dependency -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-icon">🏥</span>
+                        <h4>Healthcare Dependency 2050</h4>
+                    </div>
+                    <div class="risk-indicator" id="healthcareDep">
+                        <span class="risk-dot"></span>
+                        <span class="risk-label">Analyzing...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preventive Strategies -->
+            <div class="strategies-section">
+                <h3>🛡️ AI-Recommended Preventive Strategies</h3>
+                <div class="strategies-grid" id="strategiesGrid"></div>
+            </div>
+
+            <!-- Malaysia 2050 Health Infrastructure -->
+            <div class="malaysia-section">
+                <h3>🌏 Malaysia 2050 Health Infrastructure</h3>
+                <div class="malaysia-grid">
+                    <div class="malaysia-card">
+                        <div class="m-icon">🏥</div>
+                        <h4>AI Hospital Automation</h4>
+                        <p>Fully automated diagnostic centers with AI triage and robotic surgery across all states.</p>
+                        <div class="m-stat">
+                            <span class="m-stat-num">500+</span>
+                            <span class="m-stat-label">AI Clinics Nationwide</span>
+                        </div>
+                    </div>
+                    <div class="malaysia-card">
+                        <div class="m-icon">⌚</div>
+                        <h4>Smart Wearable Integration</h4>
+                        <p>Government-subsidized health wearables that sync with your Digital Twin in real-time.</p>
+                        <div class="m-stat">
+                            <span class="m-stat-num">98%</span>
+                            <span class="m-stat-label">Wearable Adoption Rate</span>
+                        </div>
+                    </div>
+                    <div class="malaysia-card">
+                        <div class="m-icon">📡</div>
+                        <h4>National Health Network</h4>
+                        <p>Decentralized health data mesh connecting every rakyat to predictive care systems.</p>
+                        <div class="m-stat">
+                            <span class="m-stat-num">35M</span>
+                            <span class="m-stat-label">Digital Health Twins Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Malaysia Health Projection Graph -->
+                <div class="projection-graph-card">
+                    <h4>📊 Malaysia Health Projection 2024–2050</h4>
+                    <canvas id="projectionChart" width="800" height="300"></canvas>
+                    <div class="graph-legend">
+                        <span class="legend-item"><span class="legend-dot" style="background:#00f5d4"></span> Preventive
+                            Care Adoption</span>
+                        <span class="legend-item"><span class="legend-dot" style="background:#ff6b6b"></span> Chronic
+                            Disease Rate</span>
+                        <span class="legend-item"><span class="legend-dot" style="background:#ffd166"></span> Healthcare
+                            Costs (Index)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What If Mode -->
+            <div class="whatif-section">
+                <div class="whatif-header">
+                    <h3>🔥 What If Mode</h3>
+                    <p>Change one habit and instantly see your improved 2050 outcome.</p>
+                </div>
+                <div class="whatif-controls">
+                    <div class="whatif-selector">
+                        <label>Choose a habit to improve:</label>
+                        <select id="whatifSelect">
+                            <option value="">— Select —</option>
+                            <option value="diet">🍔 Improve Diet</option>
+                            <option value="exercise">🏃 Exercise More</option>
+                            <option value="sleep">😴 Better Sleep</option>
+                            <option value="screen">📱 Less Screen Time</option>
+                            <option value="stress">😰 Reduce Stress</option>
+                            <option value="environment">🌏 Cleaner Environment</option>
+                        </select>
+                    </div>
+                    <div class="whatif-result" id="whatifResult">
+                        <div class="whatif-comparison">
+                            <div class="whatif-before">
+                                <span class="whatif-label">Current Score</span>
+                                <span class="whatif-score" id="whatifBefore">—</span>
+                            </div>
+                            <div class="whatif-arrow">→</div>
+                            <div class="whatif-after">
+                                <span class="whatif-label">Improved Score</span>
+                                <span class="whatif-score" id="whatifAfter">—</span>
+                            </div>
+                        </div>
+                        <div class="whatif-impact" id="whatifImpact"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="result-actions">
+                <button id="restartBtn" class="secondary-button">← Start Over</button>
+                <button id="shareBtn" class="cta-button">
+                    <span class="btn-text">Share Your Results</span>
+                    <span class="btn-icon">📤</span>
+                    <span class="btn-glow"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Health Advisor -->
+    <div id="chatbotWidget" class="chatbot-widget">
+        <!-- Floating Toggle Button -->
+        <button id="chatbotToggle" class="chatbot-toggle" aria-label="Open AI Health Advisor">
+            <span class="chatbot-toggle-icon" id="chatbotToggleIcon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    <circle cx="9" cy="10" r="1" fill="currentColor" />
+                    <circle cx="12" cy="10" r="1" fill="currentColor" />
+                    <circle cx="15" cy="10" r="1" fill="currentColor" />
+                </svg>
+            </span>
+            <span class="chatbot-toggle-close" id="chatbotToggleClose">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </span>
+            <span class="chatbot-toggle-pulse"></span>
+            <span class="chatbot-toggle-badge" id="chatbotBadge">AI</span>
+        </button>
+
+        <!-- Chat Panel -->
+        <div id="chatbotPanel" class="chatbot-panel">
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <div class="chatbot-avatar">
+                        <span class="chatbot-avatar-icon">🤖</span>
+                        <span class="chatbot-avatar-pulse"></span>
+                    </div>
+                    <div>
+                        <h4 class="chatbot-title">AI Health Advisor</h4>
+                        <span class="chatbot-status"><span class="chatbot-status-dot"></span>Online · Malaysia
+                            2050</span>
+                    </div>
+                </div>
+                <button id="chatbotMinimize" class="chatbot-minimize" aria-label="Minimize chat">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="chatbot-messages" id="chatbotMessages">
+                <!-- Messages -->
+            </div>
+
+            <!-- Message Suggestion -->
+            <div class="chatbot-suggestions" id="chatbotSuggestions">
+                <button class="suggestion-chip" data-question="What does my health score mean?">📊 What does my score
+                    mean?</button>
+                <button class="suggestion-chip" data-question="What should I improve first?">🎯 What should I improve
+                    first?</button>
+                <button class="suggestion-chip" data-question="What are my biggest health risks?">⚠️ My biggest health
+                    risks?</button>
+                <button class="suggestion-chip" data-question="Give me a personalized daily wellness plan.">🌿 Daily
+                    wellness plan</button>
+                <button class="suggestion-chip" data-question="How will Malaysia 2050 healthcare help me?">🏥 Malaysia
+                    2050 healthcare</button>
+                <button class="suggestion-chip" data-question="Tips to reduce my stress levels?">🧘 Stress reduction
+                    tips</button>
+            </div>
+
+            <div class="chatbot-input-bar">
+                <input type="text" id="chatbotInput" class="chatbot-input" placeholder="Ask about your health..."
+                    autocomplete="off" />
+                <button id="chatbotSend" class="chatbot-send" aria-label="Send message">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
