@@ -219,18 +219,19 @@ let currentScore = 0;
 // ==========================================
 function backToVR() {
 
-  const data = {
-    diet: document.querySelector('[data-name="diet"] .option-btn.active')?.dataset.value,
-    exercise: document.querySelector('[data-name="exercise"] .option-btn.active')?.dataset.value,
-    sleep: document.querySelector('[data-name="sleep"] .option-btn.active')?.dataset.value,
-    screen: document.querySelector('[data-name="screen"] .option-btn.active')?.dataset.value,
-    stress: document.querySelector('[data-name="stress"] .option-btn.active')?.dataset.value,
-    environment: document.querySelector('[data-name="environment"] .option-btn.active')?.dataset.value
-  };
+  const diet = document.querySelector('[data-name="diet"] .option-btn.active')?.dataset.value;
+  const exercise = document.querySelector('[data-name="exercise"] .option-btn.active')?.dataset.value;
+  const sleep = document.querySelector('[data-name="sleep"] .option-btn.active')?.dataset.value;
+  const screen = document.querySelector('[data-name="screen"] .option-btn.active')?.dataset.value;
+  const stress = document.querySelector('[data-name="stress"] .option-btn.active')?.dataset.value;
+  const environment = document.querySelector('[data-name="environment"] .option-btn.active')?.dataset.value;
 
-  const json = encodeURIComponent(JSON.stringify(data));
+  const url =
+    `myapp://return?diet=${diet}&exercise=${exercise}&sleep=${sleep}&screen=${screen}&stress=${stress}&environment=${environment}`;
 
-  window.location.href = "myapp://return?data=" + json;
+  console.log("Returning to VR:", url);
+
+  window.location.href = url;
 }
 
 function runSimulation() {
@@ -1150,4 +1151,5 @@ document.getElementById('whatifSelect').addEventListener('change', function () {
         return topics.join('');
     }
 })();
+
 
