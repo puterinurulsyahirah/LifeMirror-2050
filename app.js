@@ -228,12 +228,9 @@ function backToVR() {
     environment: document.querySelector('[data-name="environment"] .option-btn.active')?.dataset.value
   };
 
-  console.log("Collected lifestyle data:", data);
-
   const json = encodeURIComponent(JSON.stringify(data));
-  const link = "lifemirror://save?data=" + json;
 
-  window.location.href = "myapp://return";
+  window.location.href = "myapp://return?data=" + json;
 }
 
 function runSimulation() {
@@ -1153,3 +1150,4 @@ document.getElementById('whatifSelect').addEventListener('change', function () {
         return topics.join('');
     }
 })();
+
