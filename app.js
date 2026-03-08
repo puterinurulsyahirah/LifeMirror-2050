@@ -230,8 +230,13 @@ const data = {
   console.log("Collected lifestyle data:", data);
 
   const json = encodeURIComponent(JSON.stringify(data));
-  const link = "lifemirror://save?data=" + json;
-                     
+  //const link = "lifemirror://save?data=" + json;
+
+   unityInstance.SendMessage(
+    "LifestyleDataManager",   // GameObject name
+    "ReceivePlayerData",      // C# method
+    JSON.stringify(data)
+);
   /*var data = {
     diet = document.querySelector('[data-name="diet"] .option-btn.active')?.dataset.value,
     exercise = document.querySelector('[data-name="exercise"] .option-btn.active')?.dataset.value,
@@ -1167,6 +1172,7 @@ document.getElementById('whatifSelect').addEventListener('change', function () {
         return topics.join('');
     }
 })();
+
 
 
 
