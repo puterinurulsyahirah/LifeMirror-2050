@@ -233,9 +233,7 @@ function backToVR() {
   const json = encodeURIComponent(JSON.stringify(data));
   const link = "lifemirror://save?data=" + json;
 
-  console.log("Generated BackToVR link:", link);
-
-  window.location.href = link;
+  window.location.href = "myapp://return";
 }
 
 function runSimulation() {
