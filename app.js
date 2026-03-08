@@ -213,13 +213,27 @@ let currentScore = 0;
 // SIMULATION
 // ==========================================
 function backToVR() {;
-   var data = {
-        diet = document.querySelector('[data-name="diet"] .option-btn.active')?.dataset.value,
-        exercise = document.querySelector('[data-name="exercise"] .option-btn.active')?.dataset.value,
-        sleep = document.querySelector('[data-name="sleep"] .option-btn.active')?.dataset.value,
-      screen = document.querySelector('[data-name="screen"] .option-btn.active')?.dataset.value,
-      stress = document.querySelector('[data-name="stress"] .option-btn.active')?.dataset.value,
-      environment = document.querySelector('[data-name="environment"] .option-btn.active')?.dataset.value
+   const data = {
+    diet: document.querySelector('[data-name="diet"] .option-btn.active')?.dataset.value,
+    exercise: document.querySelector('[data-name="exercise"] .option-btn.active')?.dataset.value,
+    sleep: document.querySelector('[data-name="sleep"] .option-btn.active')?.dataset.value,
+    screen: document.querySelector('[data-name="screen"] .option-btn.active')?.dataset.value,
+    stress: document.querySelector('[data-name="stress"] .option-btn.active')?.dataset.value,
+    environment: document.querySelector('[data-name="environment"] .option-btn.active')?.dataset.value
+  };
+
+  console.log("Collected lifestyle data:", data);
+
+  const json = encodeURIComponent(JSON.stringify(data));
+  const link = "lifemirror://save?data=" + json;
+                     
+  /*var data = {
+    diet = document.querySelector('[data-name="diet"] .option-btn.active')?.dataset.value,
+    exercise = document.querySelector('[data-name="exercise"] .option-btn.active')?.dataset.value,
+    sleep = document.querySelector('[data-name="sleep"] .option-btn.active')?.dataset.value,
+    screen = document.querySelector('[data-name="screen"] .option-btn.active')?.dataset.value,
+    stress = document.querySelector('[data-name="stress"] .option-btn.active')?.dataset.value,
+    environment = document.querySelector('[data-name="environment"] .option-btn.active')?.dataset.value
     };
 
     unityInstance.SendMessage(
@@ -228,7 +242,7 @@ function backToVR() {;
         JSON.stringify(data)
     );
 }
-  console.log("Returning data:", data);
+  console.log("Returning data:", data);*/
 }
 
 function runSimulation() {
