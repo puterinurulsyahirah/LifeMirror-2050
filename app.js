@@ -139,11 +139,6 @@ document.getElementById('restartBtn').addEventListener('click', () => {
     showPage('landing');
 });
 
-// Share
-document.getElementById('shareBtn').addEventListener('click', () => {
-    window.location.href = "myapp://return";
-});
-
 // Init counters on load
 setTimeout(animateCounters, 500);
 
@@ -1151,6 +1146,7 @@ document.getElementById('whatifSelect').addEventListener('change', function () {
         return topics.join('');
     }
 })();
+
 
 
 
