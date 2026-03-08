@@ -141,20 +141,7 @@ document.getElementById('restartBtn').addEventListener('click', () => {
 
 // Share
 document.getElementById('shareBtn').addEventListener('click', () => {
-    const score = currentScore;
-    const tier = getTier(score);
-    const text = `🧬 My Malaysia 2050 Digital Health Twin score is ${score}/100 — ${tier.label}! Predict. Prevent. Thrive. #Malaysia2050 #DigitalHealthTwin`;
-    if (navigator.share) {
-        navigator.share({ title: 'My 2050 Health Twin', text });
-    } else {
-        navigator.clipboard.writeText(text).then(() => {
-            const btn = document.getElementById('shareBtn');
-            btn.querySelector('.btn-text').textContent = 'Copied!';
-            setTimeout(() => {
-                btn.querySelector('.btn-text').textContent = 'Share Your Results';
-            }, 2000);
-        });
-    }
+    window.location.href = "myapp://return";
 });
 
 // Init counters on load
