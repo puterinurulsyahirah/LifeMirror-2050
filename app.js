@@ -212,7 +212,7 @@ let currentScore = 0;
 // ==========================================
 // SIMULATION
 // ==========================================
-function backToVR() {;
+function backToVR() {
    const data = {
     diet: document.querySelector('[data-name="diet"] .option-btn.active')?.dataset.value,
     exercise: document.querySelector('[data-name="exercise"] .option-btn.active')?.dataset.value,
@@ -1162,6 +1162,7 @@ document.getElementById('whatifSelect').addEventListener('change', function () {
         return topics.join('');
     }
 })();
+
 
 
 
