@@ -222,7 +222,7 @@ function backToVR() {
   const environment = document.querySelector('[data-name="environment"] .option-btn.active')?.dataset.value;
 
   const url =
-    `https://puterinurulsyahirah.github.io/LifeMirror-2050/?diet=${diet}&exercise=${exercise}&sleep=${sleep}&screen=${screen}&stress=${stress}&environment=${environment}`;
+    `myapp://return?diet=${diet}&exercise=${exercise}&sleep=${sleep}&screen=${screen}&stress=${stress}&environment=${environment}`;
 
   console.log("Returning to VR:", url);
 
@@ -1146,6 +1146,7 @@ document.getElementById('whatifSelect').addEventListener('change', function () {
         return topics.join('');
     }
 })();
+
 
 
 
