@@ -218,8 +218,7 @@ let currentScore = 0;
 // SIMULATION
 // ==========================================
 document.getElementById('simulateBtn').addEventListener('click', () => {
-    showPage('processing');
-    runSimulation();
+    window.location.href = "myapp://return";
 });
 
 function runSimulation() {
