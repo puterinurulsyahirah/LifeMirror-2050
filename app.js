@@ -217,9 +217,26 @@ let currentScore = 0;
 // ==========================================
 // SIMULATION
 // ==========================================
-document.getElementById('simulateBtn').addEventListener('click', () => {
-    window.location.href = "myapp://return";
-});
+function backToVR() {
+
+  const data = {
+    diet: document.querySelector('[data-name="diet"] .option-btn.active')?.dataset.value,
+    exercise: document.querySelector('[data-name="exercise"] .option-btn.active')?.dataset.value,
+    sleep: document.querySelector('[data-name="sleep"] .option-btn.active')?.dataset.value,
+    screen: document.querySelector('[data-name="screen"] .option-btn.active')?.dataset.value,
+    stress: document.querySelector('[data-name="stress"] .option-btn.active')?.dataset.value,
+    environment: document.querySelector('[data-name="environment"] .option-btn.active')?.dataset.value
+  };
+
+  console.log("Collected lifestyle data:", data);
+
+  const json = encodeURIComponent(JSON.stringify(data));
+  const link = "lifemirror://save?data=" + json;
+
+  console.log("Generated BackToVR link:", link);
+
+  window.location.href = link;
+}
 
 function runSimulation() {
     const ring = document.getElementById('ringProgress');
