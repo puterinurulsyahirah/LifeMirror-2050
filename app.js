@@ -213,14 +213,19 @@ let currentScore = 0;
 // SIMULATION
 // ==========================================
 function backToVR() {
-   const data = {
-    diet: document.querySelector('[data-name="diet"] .option-btn.active')?.dataset.value,
-    exercise: document.querySelector('[data-name="exercise"] .option-btn.active')?.dataset.value,
-    sleep: document.querySelector('[data-name="sleep"] .option-btn.active')?.dataset.value,
-    screen: document.querySelector('[data-name="screen"] .option-btn.active')?.dataset.value,
-    stress: document.querySelector('[data-name="stress"] .option-btn.active')?.dataset.value,
-    environment: document.querySelector('[data-name="environment"] .option-btn.active')?.dataset.value
-  };
+   const getValue = (name) => {
+    const el = document.querySelector(`[data-name="${name}"] .option-btn.active`);
+    return el ? el.dataset.value : null;
+};
+
+const data = {
+    diet: getValue("diet"),
+    exercise: getValue("exercise"),
+    sleep: getValue("sleep"),
+    screen: getValue("screen"),
+    stress: getValue("stress"),
+    environment: getValue("environment")
+};
 
   console.log("Collected lifestyle data:", data);
 
@@ -1162,6 +1167,7 @@ document.getElementById('whatifSelect').addEventListener('change', function () {
         return topics.join('');
     }
 })();
+
 
 
 
