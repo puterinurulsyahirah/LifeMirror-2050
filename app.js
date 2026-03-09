@@ -238,6 +238,8 @@ await fetch(
     body: JSON.stringify(data)
 });
 
+   window.location.href = "lifemirror://return";
+
 }
 
 function runSimulation() {
@@ -1157,6 +1159,7 @@ document.getElementById('whatifSelect').addEventListener('change', function () {
         return topics.join('');
     }
 })();
+
 
 
 
