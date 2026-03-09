@@ -235,34 +235,6 @@ await fetch(
 
 }
 
-/*function backToVR() {
-   const getValue = (name) => {
-    const el = document.querySelector(`[data-name="${name}"] .option-btn.active`);
-    return el ? el.dataset.value : null;
-};
-
-const data = {
-    diet: getValue("diet"),
-    exercise: getValue("exercise"),
-    sleep: getValue("sleep"),
-    screen: getValue("screen"),
-    stress: getValue("stress"),
-    environment: getValue("environment")
-};
-
-  console.log("Collected lifestyle data:", data);
-
-  const json = encodeURIComponent(JSON.stringify(data));
-  const link = "lifemirror://save?data=" + json;
-   window.location.href = link;
-
-   /*unityInstance.SendMessage(
-    "LifestyleDataManager",   // GameObject name
-    "ReceivePlayerData",      // C# method
-    JSON.stringify(data)
-);
-}*/
-
 function runSimulation() {
     const ring = document.getElementById('ringProgress');
     const percentEl = document.getElementById('simPercent');
@@ -1180,6 +1152,7 @@ document.getElementById('whatifSelect').addEventListener('change', function () {
         return topics.join('');
     }
 })();
+
 
 
 
