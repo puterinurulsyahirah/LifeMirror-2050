@@ -212,7 +212,30 @@ let currentScore = 0;
 // ==========================================
 // SIMULATION
 // ==========================================
-function backToVR() {
+async function backToVR(){
+
+const data = {
+    diet: getValue("diet"),
+    exercise: getValue("exercise"),
+    sleep: getValue("sleep"),
+    screen: getValue("screen"),
+    stress: getValue("stress"),
+    environment: getValue("environment")
+};
+
+await fetch(
+"https://lifemirror-api.onrender.com/api/lifestyle",
+{
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+});
+
+}
+
+/*function backToVR() {
    const getValue = (name) => {
     const el = document.querySelector(`[data-name="${name}"] .option-btn.active`);
     return el ? el.dataset.value : null;
@@ -1157,6 +1180,7 @@ document.getElementById('whatifSelect').addEventListener('change', function () {
         return topics.join('');
     }
 })();
+
 
 
 
