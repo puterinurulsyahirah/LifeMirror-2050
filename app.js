@@ -260,8 +260,8 @@ const data = {
     "LifestyleDataManager",   // GameObject name
     "ReceivePlayerData",      // C# method
     JSON.stringify(data)
-);*/
-}
+);
+}*/
 
 function runSimulation() {
     const ring = document.getElementById('ringProgress');
@@ -1180,6 +1180,7 @@ document.getElementById('whatifSelect').addEventListener('change', function () {
         return topics.join('');
     }
 })();
+
 
 
 
