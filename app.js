@@ -212,6 +212,11 @@ let currentScore = 0;
 // ==========================================
 // SIMULATION
 // ==========================================
+function getValue(name) {
+    const el = document.querySelector(`[data-name="${name}"] .option-btn.active`);
+    return el ? el.dataset.value : null;
+}
+
 async function backToVR(){
 
 const data = {
@@ -1152,6 +1157,7 @@ document.getElementById('whatifSelect').addEventListener('change', function () {
         return topics.join('');
     }
 })();
+
 
 
 
