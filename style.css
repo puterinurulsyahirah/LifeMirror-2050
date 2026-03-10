@@ -414,22 +414,11 @@ body {
     align-items: center;
 }
 
-.height-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
 .input-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 20px;
     margin-bottom: 40px;
-}
-
-.height-grid > :only-child {
-    grid-column: 2;
 }
 
 .input-card, .height-card {
@@ -1880,3 +1869,4 @@ body {
         max-height: 45vh;
     }
 }
+
