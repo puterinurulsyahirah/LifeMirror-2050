@@ -146,6 +146,7 @@ setTimeout(animateCounters, 500);
 // LIFESTYLE INPUT LOGIC
 // ==========================================
 const userInputs = {
+    height: 0,
     diet: 0,
     exercise: 0,
     sleep: 0,
@@ -220,6 +221,7 @@ function getValue(name) {
 async function backToVR(){
 
 const data = {
+    height: getValue("height"),
     diet: getValue("diet"),
     exercise: getValue("exercise"),
     sleep: getValue("sleep"),
